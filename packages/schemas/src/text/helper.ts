@@ -126,9 +126,11 @@ export const getFontKitFont = async (textSchema: TextSchema, font: Font, _cache:
   const fontKitFont = fontkit.create(
     fontData instanceof Buffer ? fontData : Buffer.from(fontData as ArrayBuffer)
   );
+
   _cache.set(cacheKey, fontKitFont);
 
-  return fontKitFont;
+  // INFO: fontkit.create() returns Font or FontCollection depending on the inputs but we only use it for Font output
+  return fontKitFont as FontKitFont;
 };
 
 const isTextExceedingBoxWidth = (text: string, calcValues: FontWidthCalcValues) => {
@@ -160,9 +162,9 @@ const getOverPosition = (textLine: string, calcValues: FontWidthCalcValues) => {
  * However, this might need to be revisited for broader language support.
  */
 const isLineBreakableChar = (char: string) => {
-  const lineBreakableChars = [' ', '-', "\u2014", "\u2013"];
+  const lineBreakableChars = [' ', '-', '\u2014', '\u2013'];
   return lineBreakableChars.includes(char);
-}
+};
 
 /**
  * Gets the position of the split. Splits the exceeding line at
@@ -180,7 +182,7 @@ const getSplitPosition = (textLine: string, calcValues: FontWidthCalcValues) => 
   let overPosTmp = overPos - 1;
   while (overPosTmp >= 0) {
     if (isLineBreakableChar(textLine[overPosTmp])) {
-      return overPosTmp+1;
+      return overPosTmp + 1;
     }
     overPosTmp--;
   }
