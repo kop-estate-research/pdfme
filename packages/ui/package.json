@@ -1,6 +1,6 @@
 {
   "name": "@pdfme/ui",
-  "version": "0.0.0",
+  "version": "3.4.3",
   "sideEffects": false,
   "author": "hand-dot",
   "license": "MIT",
@@ -69,8 +69,8 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "peerDependencies": {
-    "@pdfme/common": "latest",
-    "@pdfme/schemas": "latest"
+    "@pdfme/common": "3.4.3",
+    "@pdfme/schemas": "3.4.3"
   },
   "jest": {
     "setupFiles": [

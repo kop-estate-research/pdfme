@@ -39,7 +39,7 @@ const getTextSchema = () => {
 describe('getSplitPosition test with mocked font width calculations', () => {
   /**
    * To simplify these tests we mock the widthOfTextAtSize function to return
-   * the length of the text in number of characters.
+   * the length of   the text in number of characters.
    * Therefore, setting the boxWidthInPt to 5 should result in a split after 5 characters.
    */
 
@@ -285,7 +285,7 @@ describe('calculateDynamicFontSize with Custom font', () => {
     const _cache = new Map();
     textSchema.dynamicFontSize = { min: 10, max: 30, fit: 'horizontal' };
     const value = 'あいうあいうあい';
-    
+
     const result = await calculateDynamicFontSize({ textSchema, font, value, _cache });
 
     expect(result).toBe(16.75);

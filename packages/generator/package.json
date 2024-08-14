@@ -1,6 +1,6 @@
 {
   "name": "@pdfme/generator",
-  "version": "0.0.0",
+  "version": "3.4.3",
   "sideEffects": false,
   "author": "hand-dot",
   "license": "MIT",
@@ -53,8 +53,8 @@
     "pdf2json": "^2.0.0"
   },
   "peerDependencies": {
-    "@pdfme/common": "latest",
-    "@pdfme/schemas": "latest"
+    "@pdfme/common": "3.4.3",
+    "@pdfme/schemas": "3.4.3"
   },
   "jest": {
     "resolver": "ts-jest-resolver",

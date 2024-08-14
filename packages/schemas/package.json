@@ -1,6 +1,6 @@
 {
   "name": "@pdfme/schemas",
-  "version": "0.0.0",
+  "version": "3.4.3",
   "sideEffects": false,
   "author": "hand-dot",
   "license": "MIT",
@@ -57,7 +57,7 @@
     "pngjs": "^7.0.0"
   },
   "peerDependencies": {
-    "@pdfme/common": "latest"
+    "@pdfme/common": "3.4.3"
   },
   "jest": {
     "resolver": "ts-jest-resolver",
