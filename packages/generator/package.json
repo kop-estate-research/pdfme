@@ -37,7 +37,6 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "clean": "rimraf dist",
-    "lint": "eslint --ext .ts src",
     "test": "jest",
     "prune": "ts-prune src",
     "prettier": "prettier --write 'src/**/*.ts'"
