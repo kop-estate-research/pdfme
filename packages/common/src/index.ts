@@ -31,7 +31,7 @@ import type {
   UIProps,
   PreviewProps,
   DesignerProps,
-} from './types.js';
+} from './types';
 import {
   getFallbackFontName,
   getDefaultFont,

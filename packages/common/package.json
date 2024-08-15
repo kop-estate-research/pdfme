@@ -45,7 +45,6 @@
   "dependencies": {
     "@pdfme/pdf-lib": "^1.18.3",
     "buffer": "^6.0.3",
-    "form-render": "^2.2.20",
     "zod": "^3.20.2"
   },
   "jest": {
