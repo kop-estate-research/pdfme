@@ -55,25 +55,6 @@
     "@pdfme/common": "3.4.3",
     "@pdfme/schemas": "3.4.3"
   },
-  "jest": {
-    "resolver": "ts-jest-resolver",
-    "globalTeardown": "<rootDir>/teardown.mjs",
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.esm.json"
-      }
-    },
-    "testMatch": [
-      "**/*.test.ts"
-    ]
-  },
   "publishConfig": {
     "access": "public"
   }
