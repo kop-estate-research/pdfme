@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react';
+import { useCallback, useRef, useState, useEffect } from 'react';
 import type { SchemaForUI, PreviewProps, Size } from '@pdfme/common';
 import UnitPager from './UnitPager';
 import Root from './Root';
@@ -8,6 +8,7 @@ import Paper from './Paper';
 import Renderer from './Renderer';
 import { useUIPreProcessor, useScrollPageCursor } from '../hooks';
 import { templateSchemas2SchemasList, getPagesScrollTopByIndex } from '../helper';
+import { theme } from '../theme';
 
 const Preview = ({
   template,
@@ -101,7 +102,7 @@ const Preview = ({
                 placeholder={template.sampledata?.[0]?.[key] ?? ''}
                 tabIndex={index + 100}
                 onChange={(value) => handleChangeInput({ key, value })}
-                outline={isForm && !schema.readOnly ? `1px dashed blue` : 'transparent'}
+                outline={isForm && !schema.readOnly ? `1px dashed ${theme.primary}` : 'transparent'}
                 scale={scale}
               />
             );
