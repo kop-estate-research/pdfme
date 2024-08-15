@@ -8,7 +8,6 @@ import Paper from './Paper';
 import Renderer from './Renderer';
 import { useUIPreProcessor, useScrollPageCursor } from '../hooks';
 import { templateSchemas2SchemasList, getPagesScrollTopByIndex } from '../helper';
-import { theme } from 'antd';
 
 const Preview = ({
   template,
@@ -19,8 +18,6 @@ const Preview = ({
   onChangeInput?: (args: { index: number; value: string; key: string }) => void;
   size: Size;
 }) => {
-  const { token } = theme.useToken();
-
   const containerRef = useRef<HTMLDivElement>(null);
   const paperRefs = useRef<HTMLDivElement[]>([]);
 
@@ -104,9 +101,7 @@ const Preview = ({
                 placeholder={template.sampledata?.[0]?.[key] ?? ''}
                 tabIndex={index + 100}
                 onChange={(value) => handleChangeInput({ key, value })}
-                outline={
-                  isForm && !schema.readOnly ? `1px dashed ${token.colorPrimary}` : 'transparent'
-                }
+                outline={isForm && !schema.readOnly ? `1px dashed blue` : 'transparent'}
                 scale={scale}
               />
             );

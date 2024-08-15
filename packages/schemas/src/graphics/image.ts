@@ -72,17 +72,7 @@ const imageSchema: Plugin<ImageSchema> = {
       : page.drawImage(image as PDFImage, drawOptions);
   },
   ui: async (arg: UIRenderProps<ImageSchema>) => {
-    const {
-      value,
-      rootElement,
-      mode,
-      onChange,
-      stopEditing,
-      tabIndex,
-      placeholder,
-      theme,
-      schema,
-    } = arg;
+    const { value, rootElement, mode, onChange, stopEditing, tabIndex, placeholder, schema } = arg;
     const editable = isEditable(mode, schema);
     const isDefault = value === defaultValue;
 
@@ -153,7 +143,7 @@ const imageSchema: Plugin<ImageSchema> = {
         display: editable ? 'flex' : 'none',
         position: 'absolute',
         top: 0,
-        backgroundColor: editable || value ? addAlphaToHex(theme.colorPrimaryBg, 30) : 'none',
+        backgroundColor: editable || value ? addAlphaToHex('#0000', 30) : 'none',
         cursor: 'pointer',
       };
       Object.assign(label.style, labelStyle);

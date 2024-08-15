@@ -1,8 +1,6 @@
 import React from 'react';
-import { ConfigProvider as ThemeConfigProvider } from 'antd';
 import { I18nContext, FontContext, PluginsRegistry, OptionsContext } from '../contexts';
 import { i18n, getDict } from '../i18n';
-import { defaultTheme } from '../theme';
 import type { Dict, Plugins, Font, Lang, UIOptions } from '@pdfme/common';
 
 type Props = {
@@ -39,25 +37,18 @@ const deepMerge = <T extends Record<string, any>, U extends Record<string, any>>
 };
 
 export default ({ children, lang, font, plugins, options }: Props) => {
-  let theme = defaultTheme;
-  if (options.theme) {
-    theme = deepMerge(theme, options.theme);
-  }
-
   let dict = getDict(lang);
   if (options.labels) {
     dict = deepMerge(dict, options.labels);
   }
 
   return (
-    <ThemeConfigProvider theme={theme}>
-      <I18nContext.Provider value={(key: keyof Dict) => i18n(key, dict)}>
-        <FontContext.Provider value={font}>
-          <PluginsRegistry.Provider value={plugins}>
-            <OptionsContext.Provider value={options}>{children}</OptionsContext.Provider>
-          </PluginsRegistry.Provider>
-        </FontContext.Provider>
-      </I18nContext.Provider>
-    </ThemeConfigProvider>
+    <I18nContext.Provider value={(key: keyof Dict) => i18n(key, dict)}>
+      <FontContext.Provider value={font}>
+        <PluginsRegistry.Provider value={plugins}>
+          <OptionsContext.Provider value={options}>{children}</OptionsContext.Provider>
+        </PluginsRegistry.Provider>
+      </FontContext.Provider>
+    </I18nContext.Provider>
   );
 };

@@ -14,7 +14,7 @@ interface SVGSchema extends Schema {}
 
 const svgSchema: Plugin<SVGSchema> = {
   ui: (arg) => {
-    const { rootElement, value, mode, onChange, theme, schema } = arg;
+    const { rootElement, value, mode, onChange, schema } = arg;
     const container = document.createElement(isEditable(mode, schema) ? 'textarea' : 'div');
     container.style.width = '100%';
     container.style.height = '100%';
@@ -23,7 +23,8 @@ const svgSchema: Plugin<SVGSchema> = {
       const textarea = container as HTMLTextAreaElement;
       textarea.value = value;
       textarea.style.position = 'absolute';
-      textarea.style.backgroundColor = addAlphaToHex(theme.colorPrimaryBg, 30);
+      textarea.style.backgroundColor = 'blue';
+      textarea.style.opacity = '30%';
 
       if (isValidSVG(value)) {
         const svgElement = new DOMParser().parseFromString(value, 'text/xml').childNodes[0];

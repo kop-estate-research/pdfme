@@ -1,9 +1,5 @@
-import React from 'react';
 import { Size } from '@pdfme/common';
 import { MinusOutlined, PlusOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
-import { theme, Typography, Button } from 'antd';
-
-const { Text } = Typography;
 
 type TextStyle = { color: string; fontSize: number; margin: number };
 type ZoomProps = {
@@ -22,21 +18,13 @@ const Zoom = ({ zoomLevel, setZoomLevel, style }: ZoomProps) => {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <Button
-        type="text"
-        disabled={minZoom >= nextZoomOut}
-        onClick={() => setZoomLevel(nextZoomOut)}
-        icon={<MinusOutlined style={{ color: style.textStyle.color }} />}
-      />
-      <Text strong style={style.textStyle}>
-        {Math.round(zoomLevel * 100)}%
-      </Text>
-      <Button
-        type="text"
-        disabled={maxZoom < nextZoomIn}
-        onClick={() => setZoomLevel(nextZoomIn)}
-        icon={<PlusOutlined style={{ color: style.textStyle.color }} />}
-      />
+      <button disabled={minZoom >= nextZoomOut} onClick={() => setZoomLevel(nextZoomOut)}>
+        <MinusOutlined style={{ color: style.textStyle.color }} />
+      </button>
+      <p style={style.textStyle}>{Math.round(zoomLevel * 100)}%</p>
+      <button disabled={maxZoom < nextZoomIn} onClick={() => setZoomLevel(nextZoomIn)}>
+        <PlusOutlined style={{ color: style.textStyle.color }} />
+      </button>
     </div>
   );
 };
@@ -51,19 +39,15 @@ type PagerProps = {
 const Pager = ({ pageCursor, pageNum, setPageCursor, style }: PagerProps) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      <Button type="text" disabled={pageCursor <= 0} onClick={() => setPageCursor(pageCursor - 1)}>
+      <button disabled={pageCursor <= 0} onClick={() => setPageCursor(pageCursor - 1)}>
         <LeftOutlined style={{ color: style.textStyle.color }} />
-      </Button>
-      <Text strong style={style.textStyle}>
+      </button>
+      <p style={style.textStyle}>
         {pageCursor + 1}/{pageNum}
-      </Text>
-      <Button
-        type="text"
-        disabled={pageCursor + 1 >= pageNum}
-        onClick={() => setPageCursor(pageCursor + 1)}
-      >
+      </p>
+      <button disabled={pageCursor + 1 >= pageNum} onClick={() => setPageCursor(pageCursor + 1)}>
         <RightOutlined style={{ color: style.textStyle.color }} />
-      </Button>
+      </button>
     </div>
   );
 };
@@ -78,16 +62,14 @@ type CtlBarProps = {
 };
 
 const CtlBar = (props: CtlBarProps) => {
-  const { token } = theme.useToken();
-
   const barWidth = 300;
   const { size, pageCursor, pageNum, setPageCursor, zoomLevel, setZoomLevel } = props;
   const width = pageNum > 1 ? barWidth : barWidth / 2;
 
   const textStyle = {
-    color: token.colorWhite,
-    fontSize: token.fontSize,
-    margin: token.marginXS,
+    color: 'white',
+    fontSize: 11,
+    margin: 1,
   };
 
   return (
@@ -103,9 +85,9 @@ const CtlBar = (props: CtlBarProps) => {
           width,
           height: 40,
           boxSizing: 'border-box',
-          padding: token.paddingSM,
-          borderRadius: token.borderRadius,
-          backgroundColor: token.colorBgMask,
+          padding: 1,
+          borderRadius: '10px',
+          backgroundColor: 'black',
         }}
       >
         {pageNum > 1 && (

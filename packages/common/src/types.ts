@@ -1,6 +1,5 @@
 import { z } from 'zod';
 import type { PDFPage, PDFDocument } from '@pdfme/pdf-lib';
-import type { ThemeConfig, GlobalToken } from 'antd';
 import type { WidgetProps as _PropPanelWidgetProps, Schema as _PropPanelSchema } from 'form-render';
 import {
   Lang,
@@ -62,7 +61,6 @@ export interface PDFRenderProps<T extends Schema> {
  * @property {(value: string) => void} [onChange] - Used to change the value. Only applicable when the mode is 'form' or 'designer'.
  * @property {HTMLDivElement} rootElement - The root HTMLDivElement for the UI.
  * @property {UIOptions} options - Options object passed from the Viewer, Form, or Designer.
- * @property {ThemeConfig} theme - An object that merges the 'theme' passed as an options with the default theme.
  * @property {(key: keyof Dict | string) => string} i18n - An object merged based on the options 'lang' and 'labels'.
  * @property {Map<any, any>} _cache - Cache shared only during the execution of the render function (useful for caching images, etc. if needed).
  */
@@ -77,7 +75,6 @@ export type UIRenderProps<T extends Schema> = {
   onChange?: (value: string) => void;
   rootElement: HTMLDivElement;
   options: UIOptions;
-  theme: GlobalToken;
   i18n: (key: keyof Dict | string) => string;
   pdfJs: typeof import('pdfjs-dist/legacy/build/pdf.js');
   _cache: Map<any, any>;
@@ -93,7 +90,6 @@ export type UIRenderProps<T extends Schema> = {
  * @property {SchemaForUI[]} schemas - Array of schemas for UI rendering.
  * @property {Size} pageSize - The size of the page being edited.
  * @property {UIOptions} options - UI options for the property panel.
- * @property {GlobalToken} theme - The theme configuration used in the UI.
  * @property {(key: keyof Dict | string) => string} i18n - Internationalization dictionary for UI labels and texts.
  */
 type PropPanelProps = {
@@ -104,7 +100,6 @@ type PropPanelProps = {
   schemas: SchemaForUI[];
   pageSize: Size;
   options: UIOptions;
-  theme: GlobalToken;
   i18n: (key: keyof Dict | string) => string;
 };
 
@@ -165,7 +160,7 @@ export type BasePdf = z.infer<typeof BasePdf>;
 export type Template = z.infer<typeof Template>;
 export type GeneratorOptions = z.infer<typeof GeneratorOptions>;
 export type GenerateProps = z.infer<typeof GenerateProps> & { plugins?: Plugins };
-export type UIOptions = z.infer<typeof UIOptions> & { theme?: ThemeConfig };
+export type UIOptions = z.infer<typeof UIOptions>;
 export type UIProps = z.infer<typeof UIProps> & { plugins?: Plugins };
 export type PreviewProps = z.infer<typeof PreviewProps> & { plugins?: Plugins };
 export type DesignerProps = z.infer<typeof DesignerProps> & { plugins?: Plugins };

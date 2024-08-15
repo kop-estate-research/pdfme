@@ -50,7 +50,6 @@ export const uiRender = async (arg: UIRenderProps<TextSchema>) => {
     tabIndex,
     placeholder,
     options,
-    theme,
     _cache,
   } = arg;
   const font = options?.font || getDefaultFont();
@@ -85,7 +84,8 @@ export const uiRender = async (arg: UIRenderProps<TextSchema>) => {
   const containerStyle: CSS.Properties = {
     padding: 0,
     resize: 'none',
-    backgroundColor: getBackgroundColor(value, schema, addAlphaToHex(theme.colorPrimaryBg, 30)),
+    backgroundColor: getBackgroundColor(value, schema, 'blue'),
+    opacity: '30%',
     border: 'none',
     display: 'flex',
     flexDirection: 'column',

@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     optimizeDeps: {
-      include: ['react', 'react-dom', 'pdfjs-dist', 'antd'],
+      include: ['react', 'react-dom', 'pdfjs-dist'],
       exclude: ['@pdfme/common', '@pdfme/schemas'],
     },
   };

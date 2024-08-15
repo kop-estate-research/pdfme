@@ -1,13 +1,11 @@
 import React from 'react';
 import { Size } from '@pdfme/common';
-import { theme, Typography, Button } from 'antd';
 import {
   LeftOutlined,
   RightOutlined,
   DoubleLeftOutlined,
   DoubleRightOutlined,
 } from '@ant-design/icons';
-const { Text } = Typography;
 
 type UnitButtonProps = {
   type: 'left' | 'right' | 'doubleLeft' | 'doubleRight';
@@ -27,9 +25,9 @@ const UnitButton: React.FC<UnitButtonProps> = ({ type, onClick, disabled, textSt
   const Icon = icons[type];
 
   return (
-    <Button type="text" onClick={onClick} disabled={disabled}>
+    <button onClick={onClick} disabled={disabled}>
       <Icon style={{ color: textStyle.color }} />
-    </Button>
+    </button>
   );
 };
 
@@ -43,8 +41,6 @@ type Props = {
 const UnitPager = ({ size, unitCursor, unitNum, setUnitCursor }: Props) => {
   if (unitNum <= 1) return null;
 
-  const { token } = theme.useToken();
-
   const buttonWrapStyle: React.CSSProperties = {
     pointerEvents: 'initial',
     position: 'sticky',
@@ -53,14 +49,14 @@ const UnitPager = ({ size, unitCursor, unitNum, setUnitCursor }: Props) => {
     alignItems: 'center',
     boxSizing: 'border-box',
     height: 40,
-    padding: token.paddingSM,
-    borderRadius: token.borderRadius,
-    backgroundColor: token.colorBgMask,
+    padding: 1,
+    borderRadius: '10px',
+    backgroundColor: 'black',
   };
   const textStyle = {
-    color: token.colorWhite,
-    fontSize: token.fontSize,
-    margin: token.marginXS,
+    color: 'white',
+    fontSize: 11,
+    margin: 1,
   };
 
   return (
@@ -89,18 +85,18 @@ const UnitPager = ({ size, unitCursor, unitNum, setUnitCursor }: Props) => {
               disabled={unitCursor <= 0}
               textStyle={textStyle}
             />
-            <Text strong style={textStyle}>
+            <p style={textStyle}>
               {unitCursor + 1}/{unitNum}
-            </Text>
+            </p>
           </div>
         )}
         {unitCursor + 1 < unitNum && (
           <div
             style={{ right: '1rem', marginLeft: 'auto', marginRight: '1rem', ...buttonWrapStyle }}
           >
-            <Text strong style={textStyle}>
+            <p style={textStyle}>
               {unitCursor + 1}/{unitNum}
-            </Text>
+            </p>
             <UnitButton
               type="right"
               onClick={() => setUnitCursor(unitCursor + 1)}

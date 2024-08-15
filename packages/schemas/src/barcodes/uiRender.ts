@@ -34,8 +34,7 @@ const createBarcodeImageElm = async (schema: BarcodeSchema, value: string) => {
 };
 
 export const uiRender = async (arg: UIRenderProps<BarcodeSchema>) => {
-  const { value, rootElement, mode, onChange, stopEditing, tabIndex, placeholder, schema, theme } =
-    arg;
+  const { value, rootElement, mode, onChange, stopEditing, tabIndex, placeholder, schema } = arg;
 
   const container = document.createElement('div');
   const containerStyle: CSS.Properties = {
@@ -56,7 +55,7 @@ export const uiRender = async (arg: UIRenderProps<BarcodeSchema>) => {
       textAlign: 'center',
       fontSize: '12pt',
       fontWeight: 'bold',
-      color: theme.colorWhite,
+      color: 'white',
       backgroundColor: editable || value ? addAlphaToHex('#000000', 80) : 'none',
       border: 'none',
       display: 'flex',

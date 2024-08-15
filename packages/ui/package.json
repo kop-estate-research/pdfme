@@ -40,7 +40,6 @@
     "@dnd-kit/core": "^6.0.8",
     "@dnd-kit/sortable": "^7.0.2",
     "@scena/react-guides": "^0.16.0",
-    "antd": "^5.9.4",
     "form-render": "^2.2.16",
     "hotkeys-js": "^3.8.7",
     "pdfjs-dist": "^3.11.174",
@@ -81,7 +80,6 @@
     ],
     "moduleNameMapper": {
       "\\.(png|css)$": "<rootDir>/__mocks__/assetsTransformer.js",
-      "^antd/es/": "antd/lib/",
       "^form-render/es/": "form-render/lib/",
       "^rc-picker/es/": "rc-picker/lib/",
       "^lodash-es$": "lodash",
