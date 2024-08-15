@@ -30,7 +30,8 @@
   "overrides": {
     "canvas": "empty-npm-package",
     "path2d-polyfill": "empty-npm-package",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "glob": "^11.0.0"
   },
   "scripts": {
     "postinstall": "./scripts/link-workspaces.sh",
@@ -52,12 +53,12 @@
     "@babel/core": "^7.16.7",
     "@types/jest": "^27.5.2",
     "babel-loader": "^8.2.2",
-    "jest": "^27.4.7",
+    "jest": "^29.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
     "rimraf": "^6.0.1",
-    "ts-jest": "^27.1.2",
-    "ts-jest-resolver": "^2.0.0",
+    "ts-jest": "^29.2.4",
+    "ts-jest-resolver": "^2.0.1",
     "ts-loader": "^9.2.5",
     "ts-prune": "^0.10.3",
     "typescript": "^4.5.4"
