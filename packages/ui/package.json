@@ -28,7 +28,7 @@
     "dev": "npm-run-all --parallel devBuild:watch devBuildType:watch",
     "devBuild:watch": "esbuild src/index.ts --bundle --outfile=dist/index.es.js --format=esm --watch",
     "devBuildType:watch": "tsc --emitDeclarationOnly --watch",
-    "build": "vite build && tsc --emitDeclarationOnly",
+    "build": "tsc --emitDeclarationOnly",
     "clean": "rimraf dist",
     "lint": "eslint --ext .ts,.tsx src",
     "test": "jest",
@@ -61,10 +61,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jest-canvas-mock": "^2.3.1",
-    "process": "^0.11.10",
-    "vite": "^5.0.0",
-    "vite-plugin-css-injected-by-js": "^3.3.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "process": "^0.11.10"
   },
   "peerDependencies": {
     "@pdfme/common": "3.4.3",
