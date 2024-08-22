@@ -1,34 +1,65 @@
 image: node:latest
 
+stages:
+  - install
+  - build
+  - publish
+
+variables:
+  NPM_TOKEN: ${CI_JOB_TOKEN}
+
 cache:
   paths:
     - '**/node_modules/'
 
-stages:
-  - install
-  - build
-  - deploy
-
 install:
   stage: install
   script:
-    - npm install
+    - npm ci
 
 build:
   stage: build
+  needs: [install]
   script:
     - npm run build
   artifacts:
     paths:
-      - packages/*/dist/  # Adjust this path based on your project structure
+      - packages/*/dist
 
-pages:
-  stage: deploy
+.publish_template: &publish_job
+  stage: publish
+  needs: [build]
   script:
-    - mkdir public
-    - cp -r packages/*/dist/* public/  # Adjust this based on which packages you want to deploy
-  artifacts:
-    paths:
-      - public
+    - echo "@pdfme:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/" > .npmrc
+    - echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${NPM_TOKEN}" >> .npmrc
+    - npm publish
   only:
-    - main  # This job will only run on the main branch
+    - main
+
+publish_common:
+  <<: *publish_job
+  variables:
+    PACKAGE_PATH: packages/common
+  before_script:
+    - cd ${PACKAGE_PATH}
+
+publish_generator:
+  <<: *publish_job
+  variables:
+    PACKAGE_PATH: packages/generator
+  before_script:
+    - cd ${PACKAGE_PATH}
+
+publish_form:
+  <<: *publish_job
+  variables:
+    PACKAGE_PATH: packages/form
+  before_script:
+    - cd ${PACKAGE_PATH}
+
+publish_ui:
+  <<: *publish_job
+  variables:
+    PACKAGE_PATH: packages/ui
+  before_script:
+    - cd ${PACKAGE_PATH}
