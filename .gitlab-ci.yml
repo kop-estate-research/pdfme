@@ -2,25 +2,31 @@ image: node:latest
 
 cache:
   paths:
-    - node_modules/
+    - '**/node_modules/'
 
 stages:
+  - install
   - build
   - deploy
+
+install:
+  stage: install
+  script:
+    - npm install
 
 build:
   stage: build
   script:
-    - npm install
     - npm run build
   artifacts:
     paths:
-      - dist/  # Assuming your build output is in a 'dist' directory
+      - packages/*/dist/  # Adjust this path based on your project structure
 
 pages:
   stage: deploy
   script:
-    - mv dist public  # GitLab Pages requires the files to be in a 'public' directory
+    - mkdir public
+    - cp -r packages/*/dist/* public/  # Adjust this based on which packages you want to deploy
   artifacts:
     paths:
       - public
