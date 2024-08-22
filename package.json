@@ -1,6 +1,6 @@
 {
-  "name": "root",
-  "version": "0.0.0",
+  "name": "@estate-fe/pdfme",
+  "version": "3.4.3",
   "private": true,
   "author": "hand-dot",
   "license": "MIT",
