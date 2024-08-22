@@ -10,7 +10,10 @@ variables:
 
 cache:
   paths:
-    - '**/node_modules/'
+    - .npm/
+
+before_script:
+  - npm config set cache .npm
 
 install:
   stage: install
@@ -26,7 +29,7 @@ build:
     paths:
       - packages/*/dist
 
-.publish_template: &publish_job
+publish:
   stage: publish
   needs: [build]
   script:
@@ -34,34 +37,6 @@ build:
     - echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - echo "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - npm config set @pdfme:registry ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/
-    - npm publish --registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/
+    - npm publish -ws --registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/
   only:
     - main
-
-publish_common:
-  <<: *publish_job
-  variables:
-    PACKAGE_PATH: packages/common
-  before_script:
-    - cd ${PACKAGE_PATH}
-
-publish_generator:
-  <<: *publish_job
-  variables:
-    PACKAGE_PATH: packages/generator
-  before_script:
-    - cd ${PACKAGE_PATH}
-
-publish_form:
-  <<: *publish_job
-  variables:
-    PACKAGE_PATH: packages/form
-  before_script:
-    - cd ${PACKAGE_PATH}
-
-publish_ui:
-  <<: *publish_job
-  variables:
-    PACKAGE_PATH: packages/ui
-  before_script:
-    - cd ${PACKAGE_PATH}
