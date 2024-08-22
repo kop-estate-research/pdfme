@@ -31,8 +31,10 @@ build:
   needs: [build]
   script:
     - echo "@pdfme:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/" > .npmrc
-    - echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${NPM_TOKEN}" >> .npmrc
-    - npm publish
+    - echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+    - echo "//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+    - npm config set @pdfme:registry ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/
+    - npm publish --registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/
   only:
     - main
 
