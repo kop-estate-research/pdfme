@@ -27,8 +27,8 @@
   "scripts": {
     "dev": "npm-run-all --parallel devBuild:watch devBuildType:watch",
     "devBuild:watch": "esbuild src/index.ts --bundle --outfile=dist/index.es.js --format=esm --watch",
-    "devBuildType:watch": "tsc --emitDeclarationOnly --watch",
-    "build": "tsc --emitDeclarationOnly",
+    "devBuildType:watch": "tsc --watch",
+    "build": "tsc",
     "clean": "rimraf dist",
     "test": "jest",
     "prune": "ts-prune src",
