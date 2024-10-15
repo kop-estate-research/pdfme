@@ -34,7 +34,7 @@
     "glob": "^11.0.0"
   },
   "scripts": {
-    "postinstall": "./scripts/link-workspaces.sh",
+    "postinstall": "node ./scripts/link-workspaces.js",
     "clean": "npm-run-all --parallel clean:*",
     "clean:common": "npm run -w packages/common clean",
     "clean:schemas": "npm run -w packages/schemas clean",
