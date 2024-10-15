@@ -1,8 +1,6 @@
-import './style.css';
-
 const Spinner = () => (
   <div className="spinner-container">
-    <div className="spinner"></div>
+    <div className="spinner">Loading...</div>
   </div>
 );
 
