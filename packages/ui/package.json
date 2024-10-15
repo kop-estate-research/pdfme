@@ -36,6 +36,8 @@
     "devBuild:watch": "esbuild src/index.ts --bundle --outfile=dist/index.es.js --format=esm --watch",
     "devBuildType:watch": "tsc --watch",
     "build": "npm-run-all --parallel build:cjs build:esm",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:esm": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
     "test": "jest",
     "prune": "ts-prune src",
