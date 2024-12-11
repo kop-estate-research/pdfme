@@ -1,11 +1,6 @@
 import React from 'react';
 import { Size } from '@pdfme/common';
-import {
-  LeftOutlined,
-  RightOutlined,
-  DoubleLeftOutlined,
-  DoubleRightOutlined,
-} from '@ant-design/icons';
+import { LeftOutlined, RightOutlined, DoubleLeftOutlined, DoubleRightOutlined } from './icons';
 
 type UnitButtonProps = {
   type: 'left' | 'right' | 'doubleLeft' | 'doubleRight';

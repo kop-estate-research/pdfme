@@ -1,5 +1,5 @@
 import { Size } from '@pdfme/common';
-import { MinusOutlined, PlusOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { MinusOutlined, PlusOutlined, LeftOutlined, RightOutlined } from './icons';
 
 type TextStyle = { color: string; fontSize: number; margin: number };
 type ZoomProps = {
