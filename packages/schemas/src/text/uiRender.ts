@@ -1,5 +1,5 @@
 import type * as CSS from 'csstype';
-import { UIRenderProps, Schema, getDefaultFont } from '@pdfme/common';
+import { UIRenderProps, getDefaultFont } from '@pdfme/common';
 import type { TextSchema } from './types';
 import {
   DEFAULT_FONT_SIZE,
@@ -19,7 +19,7 @@ import {
   getBrowserVerticalFontAdjustments,
   isFirefox,
 } from './helper.js';
-import { addAlphaToHex, isEditable } from '../utils.js';
+import { isEditable } from '../utils.js';
 
 const mapVerticalAlignToFlex = (verticalAlignmentValue: string | undefined) => {
   switch (verticalAlignmentValue) {
@@ -31,12 +31,6 @@ const mapVerticalAlignToFlex = (verticalAlignmentValue: string | undefined) => {
       return 'flex-end';
   }
   return 'flex-start';
-};
-
-const getBackgroundColor = (value: string, schema: Schema, defaultBackgroundColor: string) => {
-  if (!value) return 'transparent';
-  if (schema.backgroundColor) return schema.backgroundColor as string;
-  return defaultBackgroundColor;
 };
 
 export const uiRender = async (arg: UIRenderProps<TextSchema>) => {
@@ -84,8 +78,7 @@ export const uiRender = async (arg: UIRenderProps<TextSchema>) => {
   const containerStyle: CSS.Properties = {
     padding: 0,
     resize: 'none',
-    backgroundColor: getBackgroundColor(value, schema, 'blue'),
-    opacity: '30%',
+    backgroundColor: 'transparent',
     border: 'none',
     display: 'flex',
     flexDirection: 'column',
@@ -93,6 +86,7 @@ export const uiRender = async (arg: UIRenderProps<TextSchema>) => {
     width: '100%',
     height: '100%',
   };
+
   Object.assign(container.style, containerStyle);
   rootElement.innerHTML = '';
   rootElement.appendChild(container);
