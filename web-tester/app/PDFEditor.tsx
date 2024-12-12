@@ -1,9 +1,9 @@
 'use client';
 
 import useForm from './useForm';
-import { FC, PropsWithChildren, useRef } from 'react';
+import { useRef } from 'react';
 
-const PDFEditor: FC<PropsWithChildren> = ({ children }) => {
+const PDFEditor = () => {
   const formRef = useRef<HTMLDivElement>(null);
 
   useForm(formRef);

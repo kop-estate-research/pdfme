@@ -11,8 +11,7 @@ const getSampleTemplate = (basePdf: any): Template => ({
 
 const loadPdf = async () => {
   try {
-    const res = await fetch('/api/pdf', {
-      method: 'POST',
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/pdf`, {
       headers: {
         'Content-Type': 'application/pdf',
       },
