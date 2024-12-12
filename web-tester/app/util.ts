@@ -1,11 +1,8 @@
-// Flattening in this context is the process of converting a nested object into a single-level object.
-// This implementation recursively traverses the object, creating new keys that represent the path to each value using dot notation.
-// The result is a flat structure where complex nested data is represented by keys like "parent.child.grandchild",
-
 import { Template } from '@pdfme/common';
+import { BasicSchema } from './constants';
 
 const getSampleTemplate = (basePdf: any): Template => ({
-  schemas: [{}],
+  schemas: BasicSchema,
   basePdf,
 });
 

@@ -18,7 +18,9 @@ const useForm = (formRef: React.MutableRefObject<HTMLDivElement | null>) => {
           inputs: [{}],
           plugins: PDF_PLUGINS_LIST,
         });
-      } catch (ex) {}
+      } catch (ex) {
+        console.log(ex);
+      }
     });
 
     return () => {
