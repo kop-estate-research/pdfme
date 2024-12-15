@@ -117,8 +117,6 @@ export abstract class BaseUIClass {
 
   public destroy() {
     if (!this.domContainer) throw Error(DESTROYED_ERR_MSG);
-    ReactDOM.unmountComponentAtNode(this.domContainer);
-
     this.resizeObserver.unobserve(this.domContainer);
     this.domContainer = null;
   }
