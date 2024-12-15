@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { PreviewProps } from '@pdfme/common';
 import { PreviewUI } from './class';
 import { DESTROYED_ERR_MSG } from './constants.js';
@@ -8,9 +7,16 @@ import Preview from './components/Preview';
 
 class Form extends PreviewUI {
   private onChangeInputCallback?: (arg: { index: number; value: string; key: string }) => void;
+  private root: any = null;
 
   constructor(props: PreviewProps) {
     super(props);
+
+    if (!this.root) {
+      if (!this.domContainer) throw Error(DESTROYED_ERR_MSG);
+      this.root = createRoot(this.domContainer);
+    }
+
     this.render();
   }
 
@@ -19,8 +25,7 @@ class Form extends PreviewUI {
   }
 
   protected render() {
-    if (!this.domContainer) throw Error(DESTROYED_ERR_MSG);
-    ReactDOM.render(
+    this.root.render(
       <AppContextProvider
         lang={this.getLang()}
         font={this.getFont()}
@@ -40,9 +45,17 @@ class Form extends PreviewUI {
             this.render();
           }}
         />
-      </AppContextProvider>,
-      this.domContainer
+      </AppContextProvider>
     );
+  }
+
+  destroy() {
+    if (this.root) {
+      this.root.unmount();
+      this.root = null;
+    }
+
+    super.destroy();
   }
 }
 
