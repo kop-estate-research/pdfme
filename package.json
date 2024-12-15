@@ -18,9 +18,6 @@
     "type": "git",
     "url": "git@github.com:pdfme/pdfme.git"
   },
-  "bugs": {
-    "url": "https://github.com/pdfme/pdfme/issues"
-  },
   "workspaces": [
     "packages/common",
     "packages/schemas",
