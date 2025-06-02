@@ -79,7 +79,7 @@ export type UIRenderProps<T extends Schema> = {
   rootElement: HTMLDivElement;
   options: UIOptions;
   i18n: (key: keyof Dict | string) => string;
-  pdfJs: typeof import('pdfjs-dist/legacy/build/pdf.js');
+  pdfJs: typeof import('pdfjs-dist');
   _cache: Map<any, any>;
 };
 
