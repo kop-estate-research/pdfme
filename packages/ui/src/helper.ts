@@ -1,7 +1,6 @@
-// @ts-ignore
-import { PDFJSWorker } from 'pdfjs-dist';
-import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
-GlobalWorkerOptions.workerSrc = PDFJSWorker;
+import { version, getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
+
+GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
 
 import hotkeys from 'hotkeys-js';
 import {
