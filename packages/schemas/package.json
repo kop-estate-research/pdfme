@@ -1,6 +1,6 @@
 {
   "name": "@pdfme/schemas",
-  "version": "3.4.3",
+  "version": "5.5.0",
   "sideEffects": false,
   "author": "hand-dot",
   "license": "MIT",
@@ -56,7 +56,7 @@
     "pngjs": "^7.0.0"
   },
   "peerDependencies": {
-    "@pdfme/common": "3.4.3"
+    "@pdfme/common": "5.5.0"
   },
   "publishConfig": {
     "access": "public"
