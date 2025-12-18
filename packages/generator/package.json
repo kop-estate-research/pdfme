@@ -1,6 +1,6 @@
 {
   "name": "@pdfme/generator",
-  "version": "5.5.3",
+  "version": "6.0.0",
   "sideEffects": false,
   "author": "hand-dot",
   "license": "MIT",
@@ -52,8 +52,8 @@
     "pdf2json": "^2.0.0"
   },
   "peerDependencies": {
-    "@pdfme/common": "5.5.3",
-    "@pdfme/schemas": "5.5.3"
+    "@pdfme/common": "6.0.0",
+    "@pdfme/schemas": "6.0.0"
   },
   "publishConfig": {
     "access": "public"

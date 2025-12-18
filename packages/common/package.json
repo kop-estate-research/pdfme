@@ -1,6 +1,6 @@
 {
   "name": "@pdfme/common",
-  "version": "5.5.3",
+  "version": "6.0.0",
   "sideEffects": false,
   "author": "hand-dot",
   "license": "MIT",
