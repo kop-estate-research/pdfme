@@ -1,5 +1,5 @@
 {
-  "name": "@pdfme/ui",
+  "name": "@kop-estate-research/ui",
   "version": "6.0.0",
   "sideEffects": false,
   "author": "hand-dot",
@@ -52,15 +52,15 @@
     "@types/react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@pdfme/common": "file:../common",
-    "@pdfme/schemas": "file:../schemas",
+    "@kop-estate-research/common": "file:../common",
+    "@kop-estate-research/schemas": "file:../schemas",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "jest-canvas-mock": "^2.3.1"
   },
   "peerDependencies": {
-    "@pdfme/common": "6.0.0",
-    "@pdfme/schemas": "6.0.0"
+    "@kop-estate-research/common": "6.0.0",
+    "@kop-estate-research/schemas": "6.0.0"
   },
   "publishConfig": {
     "access": "public"

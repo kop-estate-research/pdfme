@@ -1,5 +1,5 @@
 {
-  "name": "@pdfme/schemas",
+  "name": "@kop-estate-research/schemas",
   "version": "6.0.0",
   "sideEffects": false,
   "author": "hand-dot",
@@ -48,7 +48,7 @@
     "fontkit": "^2.0.2"
   },
   "devDependencies": {
-    "@pdfme/common": "file:../common",
+    "@kop-estate-research/common": "file:../common",
     "@types/bwip-js": "^3.2.1",
     "@types/fontkit": "^2.0.4",
     "@types/pngjs": "^6.0.2",
@@ -56,7 +56,7 @@
     "pngjs": "^7.0.0"
   },
   "peerDependencies": {
-    "@pdfme/common": "6.0.0"
+    "@kop-estate-research/common": "6.0.0"
   },
   "publishConfig": {
     "access": "public"
