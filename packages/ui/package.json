@@ -16,7 +16,7 @@
   "homepage": "https://pdfme.com",
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:estate-fe/pdfme.git"
+    "url": "git+https://github.com/kop-estate-research/pdfme.git"
   },
   "bugs": {
     "url": "https://github.com/pdfme/pdfme/issues"
