@@ -1,5 +1,4 @@
-Here's your GitLab CI converted to a GitHub Actions workflow:
-yamlname: CI/CD
+name: CI/CD
 
 on:
   push:
